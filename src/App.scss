@@ -20,10 +20,14 @@
 .inputFormContainer {
   display: flex;
   flex-direction: column;
+
   .originInput {
     padding: 1rem;
   }
   .stopInput {
     padding: 1rem;
+  }
+  .forSubmitButtonContainer {
+    width: 20rem;
   }
 }
