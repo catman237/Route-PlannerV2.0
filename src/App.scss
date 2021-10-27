@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+}
+
+.headerContainer {
+  display: flex;
+  padding: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0082ca;
+  .right {
+    .headerImg {
+      height: 5rem;
+      width: 5rem;
+      border-radius: 5rem;
+    }
+  }
+}
+
+.inputFormContainer {
+  display: flex;
+  flex-direction: column;
+  .originInput {
+    padding: 1rem;
+  }
+  .stopInput {
+    padding: 1rem;
+  }
+}
