@@ -28,6 +28,17 @@
     padding: 0.5rem;
   }
 }
+
+.legContainer {
+ display: flex;
+ height: fit-content;
+ width: 100%;
+ background-color: chocolate;
+ .legCard {
+   display: flex;
+ }
+}
+
 .footerContainer {
   width: 100%;
   display: flex;
@@ -39,6 +50,7 @@
   padding-top: 1rem;
 
   .copyrightContainer {
+    color: #bfbfbf;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -46,14 +58,13 @@
     width: 33%;
     .copyrightText {
       width: 40%;
-      font-size: .7rem;
+      font-size: 0.7rem;
     }
   }
 
   .footerLogoContainer {
     width: 33%;
   }
-
   .contactItemsContainer {
     display: flex;
     justify-content: flex-end;
@@ -63,10 +74,10 @@
       list-style-type: none;
       display: flex;
       * {
-        color: #0082ca;
+        color: #bfbfbf;
         text-decoration: none;
         font-weight: bold;
-        padding: .1rem;
+        padding: 0.1rem;
       }
     }
   }

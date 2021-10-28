@@ -1,9 +1,13 @@
-import Leg from './Leg';
+import Leg from "./Leg";
 
-const LegContainer = ({legs}) => {
-    return (    
-        <div>{legs.map(leg => <Leg leg={leg}/>)}</div>
-    )
-}
+const LegContainer = ({ legs }) => {
+  return (
+    <div className="legContainter">
+      {legs.map((leg) => (
+        <Leg leg={leg} />
+      ))}
+    </div>
+  );
+};
 
-export default LegContainer
+export default LegContainer;

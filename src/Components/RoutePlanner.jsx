@@ -17,9 +17,9 @@ const formatLeg = (leg) => {
 const RoutePlanner = () => {
   const [origin, setOrigin] = useState("80 clear creek lane golden co 80403");
   const [currentDestination, setCurrentDestination] = useState("");
-  const [waypoints, setWayPoints] = useState([]);
+  const [waypoints, setWayPoints] = useState(["1050WHampdenAveSuite100EnglewoodCO80110",]);
   const [directionServiceOptions, setDirectionServiceOptions] = useState();
-  const [response, setResponse] = useState()
+  const [response, setResponse] = useState(["1050WHampdenAveSuite100EnglewoodCO80110", "1050WHampdenAveSuite100EnglewoodCO80110"])
 
   const { isLoaded, loadError } = useJsApiLoader({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
