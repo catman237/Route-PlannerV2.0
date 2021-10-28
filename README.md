@@ -19,9 +19,18 @@ npm install
     googleMapsApiKey: "PASS KEY HERE",
   })
   ```
-
+3. Start the React App
 ```
 npm start
 ```
 
+
+#Packages used
+
+- "@emotion/react": "^11.5.0",
+- "@emotion/styled": "^11.3.0",
+- "@mui/icons-material": "^5.0.5",
+- "@mui/material": "^5.0.6",
+- "@react-google-maps/api": "^2.5.0",
+- "sass": "^1.43.4"
  
