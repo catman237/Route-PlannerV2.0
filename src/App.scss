@@ -17,17 +17,15 @@
   }
 }
 
-.inputFormContainer {
+.RoutePlannerContainer {
   display: flex;
   flex-direction: column;
-
-  .originInput {
-    padding: 1rem;
-  }
-  .stopInput {
-    padding: 1rem;
-  }
-  .forSubmitButtonContainer {
-    width: 20rem;
-  }
+  align-items: center;
+  justify-content: center;
+   * {
+     width: 18rem;
+     margin: 1rem;
+     padding: .5rem;
+   }
 }
+
