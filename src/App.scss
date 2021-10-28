@@ -1,5 +1,7 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .headerContainer {
@@ -18,14 +20,73 @@
 }
 
 .RoutePlannerContainer {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-   * {
-     width: 18rem;
-     margin: 1rem;
-     padding: .5rem;
-   }
+  .title {
+    padding: 1rem;
+  }
+
+  .legContainer {
+    background-color: white;
+    height: 100%;
+  }
 }
 
+.legCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(170, 161, 125);
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: .5rem;
+}
+.footerContainer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #363839;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  .copyrightContainer {
+    color: #bfbfbf;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-left: 1rem;
+    width: 33%;
+    .copyrightText {
+      width: 40%;
+      font-size: 0.7rem;
+    }
+  }
+
+  .footerLogoContainer {
+    display: flex;
+  }
+  .contactItemsContainer {
+    display: flex;
+    justify-content: flex-end;
+    width: 33%;
+    padding-right: 1rem;
+    .contactItemsList {
+      list-style-type: none;
+      display: flex;
+      * {
+        color: #bfbfbf;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 0.1rem;
+      }
+    }
+  }
+}
