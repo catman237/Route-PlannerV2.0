@@ -4,11 +4,13 @@ import { DirectionsService, useJsApiLoader } from "@react-google-maps/api";
 import Button from "@mui/material/Button";
 import Input from "@mui/material/Input";
 
+
 const formatLeg = (leg) => {
     return {
         distance: leg.distance.text,
         time: leg.duration.text,
-        address: leg.end_address
+        address: leg.end_address,
+        instructions: leg.instructions
     }
 }
 
@@ -20,19 +22,13 @@ const RoutePlanner = () => {
   const [response, setResponse] = useState()
 
   const { isLoaded, loadError } = useJsApiLoader({
-    googleMapsApiKey: "key",
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
   });
-
 
   const addDestination = (dest) => {
     waypoints.push({ location: dest });
     setWayPoints(waypoints);
   };
-
-  //   console.log("origin", origin);
-  //   console.log("currentDestination", currentDestination);
-  console.log("waypoints", waypoints);
-  console.log("origin", origin);
 
   return (
     <div className="RoutePlannerContainer">
@@ -73,8 +69,6 @@ const RoutePlanner = () => {
       >
         Plan Route
       </Button>
-
-     
 
       {isLoaded && !!directionServiceOptions && !response &&(
         <DirectionsService
