@@ -1,6 +1,6 @@
 import Leg from "./Leg";
 
-const LegContainer = ({ legs }) => {
+const LegContainer = ({legs}) => {
   return (
     <div className="legContainter">
       {legs.map((leg) => (
