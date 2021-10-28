@@ -5,8 +5,14 @@ const Leg = ({ leg }) => (
       <span>Name: </span>
       {leg.address}
     </div>
-    <div>Dist: {leg.distance}</div>
-    <div>Time: {leg.time}</div>
+    <div>
+      <span>Distance:</span>
+      {leg.distance}
+    </div>
+    <div>
+      <span>Time: </span>
+      {leg.time}
+    </div>
   </div>
 );
 
