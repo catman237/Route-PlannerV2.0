@@ -35,7 +35,7 @@ const RoutePlanner = () => {
   const [response, setResponse] = useState();
 
   const { isLoaded, loadError } = useJsApiLoader({
-    googleMapsApiKey: "",
+    googleMapsApiKey: "key",
   });
 
   const addDestination = (dest) => {
