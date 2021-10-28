@@ -1,9 +1,10 @@
+//App
 .App {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-
+//Header
 .headerContainer {
   display: flex;
   padding: 0.5rem;
@@ -18,7 +19,7 @@
     }
   }
 }
-
+//Route Planner Container
 .RoutePlannerContainer {
   height: 100vh;
   display: flex;
@@ -33,17 +34,35 @@
     height: 100%;
   }
 }
-
+// LegCard
 .legCard {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   background-color: rgb(170, 161, 125);
   margin: 1rem;
   padding: 1rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
+  .checkArrowContainer {
+    display: flex;
+    justify-content: flex-end;
+  }
+  //this is meant for the step counter on the top (WITH THE CHECK LABEL) of the card that is why it is an id
+  #infoContainerFirst {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  //this is meant for all sub categories of the trip thats wjhy it is a class
+  .infoContainer {
+    .label {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+  }
 }
+
+// Footer Container
 .footerContainer {
   position: fixed;
   left: 0;
