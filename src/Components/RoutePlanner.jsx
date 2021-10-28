@@ -1,19 +1,28 @@
 import { useState } from "react";
+import LegContainer from "./LegContainer";
 import { DirectionsService, useJsApiLoader } from "@react-google-maps/api";
 import Button from "@mui/material/Button";
 import Input from "@mui/material/Input";
 
+const formatLeg = (leg) => {
+    return {
+        distance: leg.distance.text,
+        time: leg.duration.text,
+        address: leg.end_address
+    }
+}
+
 const RoutePlanner = () => {
-  const [origin, setOrigin] = useState("");
+  const [origin, setOrigin] = useState("80 clear creek lane golden co 80403");
   const [currentDestination, setCurrentDestination] = useState("");
   const [waypoints, setWayPoints] = useState([]);
-  const [directionsInfo, setDirectionsInfo] = useState();
   const [directionServiceOptions, setDirectionServiceOptions] = useState();
+  const [response, setResponse] = useState()
 
   const { isLoaded, loadError } = useJsApiLoader({
-
-    googleMapsApiKey: "",
+    googleMapsApiKey: "key",
   });
+
 
   const addDestination = (dest) => {
     waypoints.push({ location: dest });
@@ -23,7 +32,7 @@ const RoutePlanner = () => {
   //   console.log("origin", origin);
   //   console.log("currentDestination", currentDestination);
   console.log("waypoints", waypoints);
-  console.log("origin", origin)
+  console.log("origin", origin);
 
   return (
     <div className="RoutePlannerContainer">
@@ -58,33 +67,26 @@ const RoutePlanner = () => {
             avoidHighways: false,
             avoidTolls: false,
           };
-          setDirectionServiceOptions(directionsInfo)
+          setDirectionServiceOptions(directionsInfo);
+          setOrigin('')
         }}
       >
         Plan Route
       </Button>
-      {isLoaded && !!directionServiceOptions && (
+
+     
+
+      {isLoaded && !!directionServiceOptions && !response &&(
         <DirectionsService
           options={directionServiceOptions}
           callback={(res) => {
-            console.log(res);
+            setResponse(res.routes[0].legs.map(leg => formatLeg(leg)))
           }}
         />
       )}
+      {response && <LegContainer legs={response} />}
     </div>
   );
 };
 
 export default RoutePlanner;
-
-// import React from 'react'
-
-// const RoutePlanner = () => {
-//     return (
-//         <div>
-
-//         </div>
-//     )
-// }
-
-// export default RoutePlanner
