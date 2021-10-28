@@ -1,6 +1,5 @@
 import { useState } from "react";
 import BeenhereIcon from "@mui/icons-material/Beenhere";
-import ClearIcon from "@mui/icons-material/Clear";
 
 const Leg = ({ leg }) => {
   const [toggle, setToggle] = useState(true);
@@ -9,7 +8,6 @@ const Leg = ({ leg }) => {
     <div className="legCard">
       <div id="infoContainerFirst">
         <h1>Step {leg.index + 1}</h1>
-
         {toggle ? (
           <BeenhereIcon
             onClick={() => setToggle(!toggle)}
