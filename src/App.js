@@ -1,15 +1,16 @@
 import "./App.scss";
 import Header from "./Components/Header";
-import InputForm from "./Components/InputForm";
-import RouteContainer from "./Components/RouteContainer";
+import RoutePlanner from "./Components/RoutePlanner"
+
 
 
 function App() {
+
   return (
     <div className="App">
       <Header />
-      <InputForm />
-      <RouteContainer />
+      <RoutePlanner />
+  
     </div>
   );
 }
