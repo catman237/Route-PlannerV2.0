@@ -21,17 +21,31 @@
 }
 //Route Planner Container
 .RoutePlannerContainer {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  .title {
-    padding: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 10rem;
+  
+  .todayStopContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 3rem;
+
+    .todayStopTitle {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+  }
+  .inputContainer {
+    width: 25rem;
   }
 
   .legContainer {
     background-color: white;
-    height: 100%;
+    height: 100vh;
+    
   }
 }
 // LegCard
@@ -52,6 +66,14 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    // .checkButton {
+    //   color: rgba(255, 0, 0, 0.502);
+    //   opacity: .8;
+    // }
+    // .checkButton:hover {
+    //   cursor: pointer;
+    //   color: green;
+    // }
   }
   //this is meant for all sub categories of the trip thats wjhy it is a class
   .infoContainer {
@@ -61,7 +83,6 @@
     }
   }
 }
-
 // Footer Container
 .footerContainer {
   position: fixed;
