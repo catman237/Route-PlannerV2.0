@@ -14,7 +14,12 @@ Make sure you have the following tools installed on you machine.
 npm install
 ```
 2. Pass API key into useJsApiLoader as a string || create a local variable to store key in. If you do this please remeber to add your file to the .gitignore so it will not be pushed to git hub.
-3. How to start
+ ```
+  const { isLoaded, loadError } = useJsApiLoader({
+    googleMapsApiKey: "PASS KEY HERE",
+  })
+  ```
+
 ```
 npm start
 ```
