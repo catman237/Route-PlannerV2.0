@@ -66,7 +66,7 @@ const RoutePlanner = () => {
   // useJsApiLoader is how the directionsService Component cn call to the @react-google-maps/api
   // you have to use it in this format. put some logic in to show that is loaded is true and it will run to give you a response
   const { isLoaded, loadError } = useJsApiLoader({
-    googleMapsApiKey: "AIzaSyBEpcNArogFk09WnTqj5jLjqAC1b0kuWX0",
+    googleMapsApiKey: "key",
   });
 
   //this function will update the wayPoints array
