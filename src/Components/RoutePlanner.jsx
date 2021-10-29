@@ -130,6 +130,17 @@ const RoutePlanner = () => {
       >
         Plan Route
       </Button>
+      <Button
+        onClick={() => {
+          setResponse();
+          setWayPoints([]);
+          setCurrentDestination("");
+          setwaypointCount(0);
+          setDirectionServiceOptions();
+        }}
+      >
+        Clear
+      </Button>
 
       {isLoaded && !!directionServiceOptions && !response && (
         <DirectionsService

@@ -29,7 +29,7 @@ const Leg = ({ leg }) => {
       </div>
       <div className="infoContainer">
         <span className="label">Distance: </span>
-        <span>{leg.distance} miles</span>
+        <span>{leg.distance}</span>
       </div>
       <div className="infoContainer">
         <span className="label">Time: </span>
