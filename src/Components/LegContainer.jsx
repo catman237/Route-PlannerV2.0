@@ -1,8 +1,7 @@
 import Leg from "./Leg";
 
 const LegContainer = ({ legs, status }) => {
-  console.log(legs);
-  console.log("status", status);
+  
   return (
     <div className="legContainter">
       {status === "OK" ? (
