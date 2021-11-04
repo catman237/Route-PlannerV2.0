@@ -4,7 +4,13 @@ import BeenhereIcon from "@mui/icons-material/Beenhere";
 const Leg = ({ leg }) => {
   const [toggle, setToggle] = useState(true);
 
-  return (
+  return leg.status === "OK" ? (
+    <div className="legCard">
+      <div id="infoContainerFirst">
+        <h1>no route available</h1>
+      </div>
+    </div>
+  ) : (
     <div className="legCard">
       <div id="infoContainerFirst">
         <h1>Step {leg.index + 1}</h1>

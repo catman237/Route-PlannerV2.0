@@ -1,6 +1,5 @@
 import { useState } from "react";
 import LegWrapper from "./LegWrapper";
-import LegContainer from "./LegContainer";
 import Button from "@mui/material/Button";
 import Input from "@mui/material/Input";
 
@@ -62,6 +61,7 @@ const RoutePlanner = () => {
   const [waypointCount, setwaypointCount] = useState(0);
   const [directionServiceOptions, setDirectionServiceOptions] = useState();
   const [response, setResponse] = useState();
+  const [status, setStatus] = useState();
 
   // useJsApiLoader is how the directionsService Component cn call to the @react-google-maps/api
   // you have to use it in this format. put some logic in to show that is loaded is true and it will run to give you a response
@@ -140,33 +140,16 @@ const RoutePlanner = () => {
           Clear
         </Button>
 
-        {/* const [origin, setOrigin] = useState("100 El Camino Real Belmont, CA 94002");
-  const [currentDestination, setCurrentDestination] = useState("");
-  const [waypoints, setWayPoints] = useState([]);
-  const [waypointCount, setwaypointCount] = useState(0);
-  const [directionServiceOptions, setDirectionServiceOptions] = useState();
-const [response, setResponse] = useState(testData); */}
-
-        {/* {isLoaded && !!directionServiceOptions && !response && (
-        <DirectionsService
-        options={directionServiceOptions}
-        callback={(res) => {
-          setResponse(
-            // accessing the needed data from the response
-            // index is used to keep track of how many stops have been requested.
-            res.routes[0].legs.map((leg, index) => formatLeg(leg, index))
-            );
-          }}
-          />
-          )}
-        {response && <LegContainer legs={response} />} */}
       </div>
+
       <LegWrapper
         directionServiceOptions={directionServiceOptions}
         response={response}
         waypoints={waypoints}
         setResponse={setResponse}
         formatLeg={formatLeg}
+        status={status}
+        setStatus={setStatus}
       />
     </div>
   );

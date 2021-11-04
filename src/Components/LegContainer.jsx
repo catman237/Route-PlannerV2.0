@@ -1,11 +1,18 @@
 import Leg from "./Leg";
 
-const LegContainer = ({legs}) => {
+const LegContainer = ({ legs, status }) => {
+  console.log(legs);
+  console.log("status", status);
   return (
     <div className="legContainter">
-      {legs.map((leg) => (
-        <Leg leg={leg} />
-      ))}
+      {status === "OK" ? (
+        legs.map((leg) => <Leg leg={leg} />)
+      ) : (
+        <div>
+          <h1>ERROR: {status.replace("_", " ")}</h1>
+          <h3>Please hit the clear button and try again</h3>
+        </div>
+      )}
     </div>
   );
 };

@@ -10,7 +10,7 @@ const Header = () => {
                 <h1>Route Planner</h1>
             </div>
             <div className="right">
-                <img className='headerImg' src={headerImage}/>
+                <img className='headerImg' src={headerImage} alt='headerLogoImage'/>
             </div>
         </div>
     )
