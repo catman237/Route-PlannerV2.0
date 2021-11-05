@@ -1,25 +1,39 @@
 import { useState } from "react";
-import BeenhereIcon from "@mui/icons-material/Beenhere";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import CancelIcon from "@mui/icons-material/Cancel";
 import SentimentDissatisfiedIcon from "@mui/icons-material/SentimentDissatisfied";
 import EditLocationIcon from "@mui/icons-material/EditLocation";
-import DirectionsCarFilledIcon from '@mui/icons-material/DirectionsCarFilled';
-import AccessAlarmsIcon from '@mui/icons-material/AccessAlarms';
+import DirectionsCarFilledIcon from "@mui/icons-material/DirectionsCarFilled";
+import AccessAlarmsIcon from "@mui/icons-material/AccessAlarms";
 
-const Leg = ({ leg, legs, setResponse, setWaypointCount }) => {
+const Leg = ({
+  leg,
+  legs,
+  setResponse,
+  setWaypointCount,
+  setWayPoints,
+  waypoints,
+  response,
+}) => {
   const [toggle, setToggle] = useState(true);
 
   const deleteDest = (currentDest) => {
     const updatedDests = legs.filter((leg) => leg.index !== currentDest.index);
     setResponse(updatedDests);
-    updatedDests.length >= 1
-      ? setWaypointCount(updatedDests.length - 1)
-      : setWaypointCount(0);
+    if (updatedDests.length >= 1) {
+      setWaypointCount(updatedDests.length - 1);
+      const newWayPoints = updatedDests.map((dest) => {
+        return { location: dest.address };
+      });
+      newWayPoints.splice(-1)
+      setWayPoints(newWayPoints);
+    } else {
+      setWaypointCount(0);
+    }
   };
-
+  
   return leg.status === "OK" ? (
     <Card>
       <CardContent>
@@ -56,13 +70,17 @@ const Leg = ({ leg, legs, setResponse, setWaypointCount }) => {
           paddingBottom={1}
           paddingTop={1}
         >
-          <DirectionsCarFilledIcon fontSize="small"/>{leg.distance}
+          <DirectionsCarFilledIcon fontSize="small" />
+          {leg.distance}
         </Typography>
         <Typography style={{ textAlign: "left" }} paddingBottom={1}>
-          <AccessAlarmsIcon fontSize="small"/> {leg.time}
+          <AccessAlarmsIcon fontSize="small" /> {leg.time}
         </Typography>
         <div style={{ textAlign: "center" }}>
-          <CancelIcon onClick={() => deleteDest(leg)} fontSize="medium"></CancelIcon>
+          <CancelIcon
+            onClick={() => deleteDest(leg)}
+            fontSize="medium"
+          ></CancelIcon>
         </div>
       </CardContent>
     </Card>

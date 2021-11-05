@@ -112,7 +112,7 @@ const RoutePlanner = () => {
           Add Destination
         </Button>
         <Button
-          disabled={!origin}
+          disabled={!origin || !waypoints.length}
           onClick={() => {
             const directionsInfo = {
               origin: origin.trim(),
@@ -127,6 +127,7 @@ const RoutePlanner = () => {
               avoidHighways: false,
               avoidTolls: false,
             };
+            setResponse();
             setDirectionServiceOptions(directionsInfo);
           }}
         >

@@ -1,7 +1,6 @@
 import Leg from "./Leg";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardHeader from "@mui/material/CardHeader";
 import Typography from "@mui/material/Typography";
 import SentimentDissatisfiedIcon from "@mui/icons-material/SentimentDissatisfied";
 
@@ -9,6 +8,7 @@ const LegContainer = ({
   legs,
   status,
   setResponse,
+  response,
   setWayPoints,
   waypoints,
   setWaypointCount
@@ -24,6 +24,7 @@ const LegContainer = ({
             waypoints={waypoints}
             setWaypointCount={setWaypointCount}
             legs={legs}
+            response={response}
           />
         ))
       ) : (

@@ -6,6 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import CancelIcon from "@mui/icons-material/Cancel";
 import Typography from "@mui/material/Typography";
 import ExploreIcon from "@mui/icons-material/Explore";
+import EditLocationIcon from "@mui/icons-material/EditLocation";
 
 const LegWrapper = ({
   directionServiceOptions,
@@ -93,6 +94,7 @@ const LegWrapper = ({
           setWayPoints={setWayPoints}
           waypoints={waypoints}
           setWaypointCount={setWaypointCount}
+          response={response}
         />
       )}
 
@@ -108,8 +110,8 @@ const LegWrapper = ({
                 >
                   Destination
                 </Typography>
-                <Typography style={{ textAlign: "center" }}>
-                  {point.location}
+                <Typography style={{ textAlign: "left" }} paddingTop={1}>
+                <EditLocationIcon /> {point.location}
                 </Typography>
                 <div style={{ textAlign: "center" }}>
                   <CancelIcon onClick={() => deletePoint(point)}></CancelIcon>
