@@ -56,14 +56,13 @@ const testData = [
 
 const RoutePlanner = () => {
   const [origin, setOrigin] = useState();
-  const [originToggle, setOriginToggle] = useState(false)
+  const [originToggle, setOriginToggle] = useState(false);
   const [currentDestination, setCurrentDestination] = useState("");
   const [waypoints, setWayPoints] = useState([]);
-  const [waypointCount, setwaypointCount] = useState(0);
+  const [waypointCount, setWaypointCount] = useState(0);
   const [directionServiceOptions, setDirectionServiceOptions] = useState();
   const [response, setResponse] = useState();
   const [status, setStatus] = useState();
-  
 
   // useJsApiLoader is how the directionsService Component cn call to the @react-google-maps/api
   // you have to use it in this format. put some logic in to show that is loaded is true and it will run to give you a response
@@ -71,7 +70,7 @@ const RoutePlanner = () => {
   //this function will update the wayPoints array
   //the wayPoints array is sent through to the api and it is what stops we have to take between out origin and destination
   const addDestination = (dest) => {
-    dest.length > 1 &&  waypoints.push({ location: dest });
+    dest.length > 1 && waypoints.push({ location: dest });
     setWayPoints(waypoints);
   };
 
@@ -80,7 +79,7 @@ const RoutePlanner = () => {
   const date = Date().toString().slice(3, 15);
 
   return (
-    <div className='routePlannerContainer'>
+    <div className="routePlannerContainer">
       <div className="formContainer">
         <div className="todayStopContainer">
           <span className="todayStopTitle">Number of Stops Today: {date}</span>
@@ -91,6 +90,7 @@ const RoutePlanner = () => {
           onChange={(e) => setOrigin(e.target.value)}
           value={origin}
           className="inputContainer"
+          required
         />
         <div className="destinationContainer">
           <Input
@@ -101,16 +101,18 @@ const RoutePlanner = () => {
           />
         </div>
         <Button
+          disabled={!currentDestination}
           onClick={() => {
             addDestination(currentDestination.trim());
-            setwaypointCount(waypoints.length);
+            setWaypointCount(waypoints.length);
             setCurrentDestination("");
-            setOriginToggle(true)
+            setOriginToggle(true);
           }}
         >
           Add Destination
         </Button>
         <Button
+          disabled={!origin}
           onClick={() => {
             const directionsInfo = {
               origin: origin.trim(),
@@ -126,7 +128,6 @@ const RoutePlanner = () => {
               avoidTolls: false,
             };
             setDirectionServiceOptions(directionsInfo);
-            setOrigin("");
           }}
         >
           Plan Route
@@ -136,15 +137,14 @@ const RoutePlanner = () => {
             setResponse();
             setWayPoints([]);
             setCurrentDestination("");
-            setwaypointCount(0);
+            setWaypointCount(0);
             setDirectionServiceOptions();
             setOriginToggle(false);
-            setOrigin("")
+            setOrigin("");
           }}
         >
           Clear
         </Button>
-
       </div>
 
       <LegWrapper
@@ -157,9 +157,10 @@ const RoutePlanner = () => {
         status={status}
         setStatus={setStatus}
         origin={origin}
+        setOrigin={setOrigin}
         originToggle={originToggle}
         setOriginToggle={setOriginToggle}
-        setwaypointCount={setwaypointCount}
+        setWaypointCount={setWaypointCount}
       />
     </div>
   );

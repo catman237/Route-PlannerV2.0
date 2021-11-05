@@ -27,15 +27,15 @@
 .routePlannerContainer {
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
-  padding-top: 2rem;
+  padding: 3rem;
+  padding-top: 3rem;
   padding-bottom: 10rem;
 
   .formContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
     .todayStopContainer {
       display: flex;
       flex-direction: column;
@@ -54,9 +54,28 @@
     .legContainer {
       background-color: white;
       height: 100vh;
+      .card {
+        margin: 1rem;
+        box-shadow: 5px 5px 15px 5px grey;
+      }
     }
   }
 }
+
+.legWrapperContainer {
+  width: 20rem;
+  .destinationHeader {
+    display: flex;
+    .iconWrapper {
+      margin-right: .5rem;
+    }
+  }
+  .card {
+    margin: 1rem;
+    box-shadow: 5px 5px 15px 5px grey;
+  }
+}
+
 // LegCard
 .legCard {
   display: flex;

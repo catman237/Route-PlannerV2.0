@@ -1,47 +1,71 @@
 import { useState } from "react";
 import BeenhereIcon from "@mui/icons-material/Beenhere";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import CancelIcon from "@mui/icons-material/Cancel";
+import SentimentDissatisfiedIcon from "@mui/icons-material/SentimentDissatisfied";
+import EditLocationIcon from "@mui/icons-material/EditLocation";
+import DirectionsCarFilledIcon from '@mui/icons-material/DirectionsCarFilled';
+import AccessAlarmsIcon from '@mui/icons-material/AccessAlarms';
 
-const Leg = ({ leg }) => {
+const Leg = ({ leg, legs, setResponse, setWaypointCount }) => {
   const [toggle, setToggle] = useState(true);
 
+  const deleteDest = (currentDest) => {
+    const updatedDests = legs.filter((leg) => leg.index !== currentDest.index);
+    setResponse(updatedDests);
+    updatedDests.length >= 1
+      ? setWaypointCount(updatedDests.length - 1)
+      : setWaypointCount(0);
+  };
+
   return leg.status === "OK" ? (
-    <div className="legCard">
-      <div id="infoContainerFirst">
-        <h1>no route available</h1>
-      </div>
-    </div>
+    <Card>
+      <CardContent>
+        <Typography
+          style={{ textAlign: "center" }}
+          fontWeight="bold"
+          fontSize="1rem"
+        >
+          No Route
+        </Typography>
+        <Typography style={{ textAlign: "center" }}>
+          Please hit clear button and try again
+        </Typography>
+        <div style={{ textAlign: "center" }}>
+          <SentimentDissatisfiedIcon></SentimentDissatisfiedIcon>
+        </div>
+      </CardContent>
+    </Card>
   ) : (
-    <div className="legCard">
-      <div id="infoContainerFirst">
-        <h1>Step {leg.index + 1}</h1>
-        {toggle ? (
-          <BeenhereIcon
-            onClick={() => setToggle(!toggle)}
-            color="action"
-            className="checkButton"
-          />
-        ) : (
-          <BeenhereIcon
-            onClick={() => setToggle(!toggle)}
-            color="success"
-            className="checkButton"
-            fontSize="large"
-          />
-        )}
-      </div>
-      <div className="infoContainer">
-        <span className="label">Name: </span>
-        <span>{leg.address}</span>
-      </div>
-      <div className="infoContainer">
-        <span className="label">Distance: </span>
-        <span>{leg.distance}</span>
-      </div>
-      <div className="infoContainer">
-        <span className="label">Time: </span>
-        <span>{leg.time}</span>
-      </div>
-    </div>
+    <Card className="card">
+      <CardContent>
+        <Typography
+          style={{ textAlign: "center" }}
+          fontWeight="bold"
+          fontSize="1rem"
+        >
+          Destination
+        </Typography>
+        <Typography style={{ textAlign: "left" }} paddingTop={1}>
+          <EditLocationIcon fontSize="small" /> {leg.address}
+        </Typography>
+        <Typography
+          style={{ textAlign: "left" }}
+          paddingBottom={1}
+          paddingTop={1}
+        >
+          <DirectionsCarFilledIcon fontSize="small"/>{leg.distance}
+        </Typography>
+        <Typography style={{ textAlign: "left" }} paddingBottom={1}>
+          <AccessAlarmsIcon fontSize="small"/> {leg.time}
+        </Typography>
+        <div style={{ textAlign: "center" }}>
+          <CancelIcon onClick={() => deleteDest(leg)} fontSize="medium"></CancelIcon>
+        </div>
+      </CardContent>
+    </Card>
   );
 };
 

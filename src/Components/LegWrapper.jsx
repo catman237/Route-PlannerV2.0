@@ -1,8 +1,11 @@
 import React from "react";
 import { DirectionsService, useJsApiLoader } from "@react-google-maps/api";
 import LegContainer from "./LegContainer";
-import Leg from "./Leg";
-import { filter } from "dom-helpers";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CancelIcon from "@mui/icons-material/Cancel";
+import Typography from "@mui/material/Typography";
+import ExploreIcon from "@mui/icons-material/Explore";
 
 const LegWrapper = ({
   directionServiceOptions,
@@ -14,26 +17,56 @@ const LegWrapper = ({
   setStatus,
   status,
   origin,
+  setOrigin,
   originToggle,
-  setwaypointCount,
-
+  setOriginToggle,
+  setWaypointCount,
 }) => {
-  
   const { isLoaded, loadError } = useJsApiLoader({
     googleMapsApiKey: "AIzaSyBEpcNArogFk09WnTqj5jLjqAC1b0kuWX0",
   });
-  
+
   const deletePoint = (currentPoint) => {
-    const updatedWaypoints = waypoints.filter(point => point.location !== currentPoint.location)
-    setWayPoints(updatedWaypoints)
-    setwaypointCount(updatedWaypoints.length)
-    
-  }
+    const updatedWaypoints = waypoints.filter(
+      (point) => point.location !== currentPoint.location
+    );
+    setWayPoints(updatedWaypoints);
+    setWaypointCount(updatedWaypoints.length);
+  };
 
   return (
     <div className="legWrapperContainer">
-      {originToggle && <h2>Origin: {origin}</h2>}
-      {waypoints.length < 1 && <h2>Add destinantions here</h2>}
+      {originToggle && (
+        <Card className="card">
+          <CardContent>
+            <Typography
+              style={{ textAlign: "center" }}
+              fontWeight="bold"
+              fontSize="1rem"
+            >
+              Origin
+            </Typography>
+            <Typography style={{ textAlign: "center" }}>{origin}</Typography>
+            <div style={{ textAlign: "center" }}>
+              <CancelIcon
+                onClick={() => {
+                  setOrigin("");
+                  setOriginToggle(false);
+                }}
+                padding={5}
+              ></CancelIcon>
+            </div>
+          </CardContent>
+        </Card>
+      )}
+      {waypoints.length < 1 && (
+        <div className="destinationHeader">
+          <div className="iconWrapper">
+            <ExploreIcon />
+          </div>
+          <Typography fontWeight="bold" fontSize="1.5rem">Destinations</Typography>
+        </div>
+      )}
       {isLoaded && !!directionServiceOptions && !response && (
         <DirectionsService
           options={directionServiceOptions}
@@ -52,15 +85,37 @@ const LegWrapper = ({
           }}
         />
       )}
-      {response && <LegContainer legs={response} status={status} />}
+      {response && (
+        <LegContainer
+          legs={response}
+          status={status}
+          setResponse={setResponse}
+          setWayPoints={setWayPoints}
+          waypoints={waypoints}
+          setWaypointCount={setWaypointCount}
+        />
+      )}
 
       {!response &&
         waypoints.map((point) => {
           return (
-            <div>
-              <h3>{point.location}</h3>
-              <button onClick={() => deletePoint(point)}>x</button>
-            </div>
+            <Card className="card">
+              <CardContent>
+                <Typography
+                  style={{ textAlign: "center" }}
+                  fontWeight="bold"
+                  fontSize="1rem"
+                >
+                  Destination
+                </Typography>
+                <Typography style={{ textAlign: "center" }}>
+                  {point.location}
+                </Typography>
+                <div style={{ textAlign: "center" }}>
+                  <CancelIcon onClick={() => deletePoint(point)}></CancelIcon>
+                </div>
+              </CardContent>
+            </Card>
           );
         })}
     </div>
