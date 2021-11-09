@@ -47,7 +47,10 @@ const LegWrapper = ({
             >
               Origin
             </Typography>
-            <Typography style={{ textAlign: "center" }}>{origin}</Typography>
+            <Typography style={{ display: "flex" }} paddingLeft={1}>
+              <ExploreIcon />{origin}
+            </Typography>
+
             <div style={{ textAlign: "center" }}>
               <CancelIcon
                 onClick={() => {
@@ -65,7 +68,9 @@ const LegWrapper = ({
           <div className="iconWrapper">
             <ExploreIcon />
           </div>
-          <Typography fontWeight="bold" fontSize="1.5rem">Destinations</Typography>
+          <Typography fontWeight="bold" fontSize="1.5rem">
+            Destinations
+          </Typography>
         </div>
       )}
       {isLoaded && !!directionServiceOptions && !response && (
@@ -111,7 +116,7 @@ const LegWrapper = ({
                   Destination
                 </Typography>
                 <Typography style={{ textAlign: "left" }} paddingTop={1}>
-                <EditLocationIcon /> {point.location}
+                  <EditLocationIcon /> {point.location}
                 </Typography>
                 <div style={{ textAlign: "center" }}>
                   <CancelIcon onClick={() => deletePoint(point)}></CancelIcon>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import LegWrapper from "./LegWrapper";
 import Button from "@mui/material/Button";
 import Input from "@mui/material/Input";
@@ -63,6 +63,16 @@ const RoutePlanner = () => {
   const [directionServiceOptions, setDirectionServiceOptions] = useState();
   const [response, setResponse] = useState();
   const [status, setStatus] = useState();
+  const [name, setName] = useState()
+
+  const helloFunction = () => {
+    const userName = window.prompt('Please enter name')
+    setName(userName)
+  }
+
+  useEffect(() => {
+    helloFunction()
+  },[])
 
   // useJsApiLoader is how the directionsService Component cn call to the @react-google-maps/api
   // you have to use it in this format. put some logic in to show that is loaded is true and it will run to give you a response
@@ -82,7 +92,7 @@ const RoutePlanner = () => {
     <div className="routePlannerContainer">
       <div className="formContainer">
         <div className="todayStopContainer">
-          <span className="todayStopTitle">Number of Stops Today: {date}</span>
+          <span className="todayStopTitle">{name} you have stops today: {date}</span>
           <span className="todayStopTitle">{waypointCount}</span>
         </div>
         <Input
