@@ -1,7 +1,8 @@
 import React from "react";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import FacebookIcon from "@mui/icons-material/Facebook";
+import AltRouteIcon from '@mui/icons-material/AltRoute';
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import VideogameAssetOutlinedIcon from '@mui/icons-material/VideogameAssetOutlined';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 const Footer = () => {
   const footerImg =
@@ -11,32 +12,32 @@ const Footer = () => {
     <div className="footerContainer">
       <div className="copyrightContainer">
         <p className="copyrightText">
-          Copyright © 2005-2020 Premier Roofing LLC All Rights Reserved
+          Copyright © Route Planner | All Rights Reserved
         </p>
       </div>
       <div className="footerLogoContainer">
-        <img src={footerImg} alt="premierRoofingImage" className="footerImg" />
+        <AltRouteIcon className='footerImg'/> 
       </div>
       <div className="contactItemsContainer">
         <ul className="contactItemsList">
           <li>
             <span>
-              <a href="https://www.facebook.com/premier.roofing.company/">
-                <FacebookIcon />
+              <a href="https://github.com/catman237">
+                <GitHubIcon />
               </a>
             </span>
           </li>
           <li>
             <span>
-              <a href="https://www.youtube.com/user/ctulppremier">
+              <a href="https://www.youtube.com/channel/UCHrHk4VFIE2s4hpvQAm_OEA">
                 <YouTubeIcon />
               </a>
             </span>
           </li>
           <li>
             <span>
-              <a href="https://www.instagram.com/premierroofing/">
-                <InstagramIcon />
+              <a href="https://game-of-dice-app.netlify.app/">
+                <VideogameAssetOutlinedIcon />
               </a>
             </span>
           </li>

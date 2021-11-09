@@ -8,14 +8,13 @@ import EditLocationIcon from "@mui/icons-material/EditLocation";
 import DirectionsCarFilledIcon from "@mui/icons-material/DirectionsCarFilled";
 import AccessAlarmsIcon from "@mui/icons-material/AccessAlarms";
 
+
 const Leg = ({
   leg,
   legs,
   setResponse,
   setWaypointCount,
-  setWayPoints,
-  waypoints,
-  response,
+  setWayPoints
 }) => {
   const [toggle, setToggle] = useState(true);
 
@@ -27,15 +26,15 @@ const Leg = ({
       const newWayPoints = updatedDests.map((dest) => {
         return { location: dest.address };
       });
-      newWayPoints.splice(-1)
+      newWayPoints.splice(-1);
       setWayPoints(newWayPoints);
     } else {
       setWaypointCount(0);
     }
   };
-  
+
   return leg.status === "OK" ? (
-    <Card>
+    <Card sx={{bgcolor: 'red'}}>
       <CardContent>
         <Typography
           style={{ textAlign: "center" }}

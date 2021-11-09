@@ -15,11 +15,13 @@
   justify-content: space-between;
   align-items: center;
   background-color: #0082ca;
+  color: white;
   .right {
     .headerImg {
       height: 5rem;
       width: 5rem;
       border-radius: 5rem;
+      color: white;
     }
   }
 }
@@ -31,86 +33,46 @@
   padding-top: 3rem;
   padding-bottom: 10rem;
 
-  .formContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .todayStopContainer {
+  .legWrapperContainer {
+    width: 20rem;
+    .destinationHeader {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-bottom: 3rem;
-
-      .todayStopTitle {
-        font-size: 2rem;
-        font-weight: bold;
+      .iconWrapper {
+        margin-right: 0.5rem;
       }
     }
-    .inputContainer {
-      width: 25rem;
+    .card {
+      margin: 1rem;
+      box-shadow: 5px 5px 15px 5px grey;
     }
-
     .legContainer {
       background-color: white;
       height: 100vh;
-      .card {
-        margin: 1rem;
-        box-shadow: 5px 5px 15px 5px grey;
-      }
     }
   }
 }
 
-.legWrapperContainer {
-  width: 20rem;
-  .destinationHeader {
-    display: flex;
-    .iconWrapper {
-      margin-right: .5rem;
-    }
-  }
-  .card {
-    margin: 1rem;
-    box-shadow: 5px 5px 15px 5px grey;
-  }
-}
-
-// LegCard
-.legCard {
+.formContainer {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  background-color: white;
-  box-shadow: 5px 5px 15px 5px #000000;
-  margin: 1rem;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  .checkArrowContainer {
+  align-items: center;
+
+  .todayStopContainer {
     display: flex;
-    justify-content: flex-end;
-  }
-  //this is meant for the step counter on the top (WITH THE CHECK LABEL) of the card that is why it is an id
-  #infoContainerFirst {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    .checkButton {
-      opacity: 0.8;
-    }
-    .checkButton:hover {
-      cursor: pointer;
-      color: green;
-    }
-  }
-  //this is meant for all sub categories of the trip thats wjhy it is a class
-  .infoContainer {
-    .label {
-      font-size: 1.2rem;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 3rem;
+
+    .todayStopTitle {
+      font-size: 2rem;
       font-weight: bold;
     }
   }
+  .inputContainer {
+    width: 25rem;
+  }
 }
+
 // Footer Container
 .footerContainer {
   position: fixed;
@@ -140,6 +102,11 @@
 
   .footerLogoContainer {
     display: flex;
+    .footerImg {
+      color: white;
+      height: 3rem;
+      width: 3rem;
+    }
   }
   .contactItemsContainer {
     display: flex;
