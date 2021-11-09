@@ -24,7 +24,7 @@ const LegWrapper = ({
   setWaypointCount,
 }) => {
   const { isLoaded, loadError } = useJsApiLoader({
-    googleMapsApiKey: "AIzaSyBEpcNArogFk09WnTqj5jLjqAC1b0kuWX0",
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
   });
 
   const deletePoint = (currentPoint) => {
